@@ -46,27 +46,58 @@ const config = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
-					//options: {
-					//	presets: ['es2015', 'stage-0']
-					//}
+					// options: {presets: ['es2015', 'stage-0']} // off
 				}
 			},
 
 			// css
 			{
-				test: /\.s?css$/,
-				use: cssConf
+				test: /.css$/,
+				use: ExtractTextPlugin.extract(
+					{
+						fallback: 'style-loader',
+						use: 'css-loader',
+						// publicPath: "/dist"
+					}
+				)
+			},
+			// less
+			{
+				test: /\.less$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'less-loader'
+				]
 			},
 
-			// images
+			// images && fonts
+			// https://webpack.js.org/loaders/file-loader/
 			{
 				test: /\.(gif|svg|jpe?g|png|webp)$/i,
 				use: {
-					loader: 'file-loader?name=[hash].[ext]&publicPath=img/!image-webpack-loader',
+					loader: 'file-loader', // ?publicPath=img/!image-webpack-loader
 					query: {
-						useRelativePath: isProduction
+						name: 'images/[name].[ext]' // or name: 'images/[hash].[ext]'
+						//,useRelativePath: isProduction
 					}
 				}
+			},
+
+			// files
+			// https://webpack.js.org/loaders/url-loader/
+			{
+				test: /\.(otf|ttf|woff|woff2|etc|eot)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192 // bytes
+							,name: 'fonts/[name].[ext]' // or name: 'fonts/[hash].[ext]'
+							// ,fallback: 'responsive-loader'
+						}
+					}
+				]
 			}
 
 		]
@@ -86,11 +117,22 @@ const config = {
 				,minChunks: 2 // Infinity
 			}
 		)
+		// define global vars
 		,new webpack.DefinePlugin(
 			{
 				PROJECT_PRODUCTION: JSON.stringify(isProduction),
 				PROJECT_LANG: JSON.stringify('ru'),
 			}
+		),
+		// provide jquery
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery'
+		}),
+		// locales for moment.js
+		new webpack.ContextReplacementPlugin(
+			/moment[\/\\]locale$/,
+			/en-gb|ru/
 		)
 	],
 
