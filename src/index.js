@@ -1,8 +1,14 @@
 import $ from 'jquery';
+window.$ = $;
+window.jQuery = $;
+
+// Hi!
 console.log($.trim('Hello! I am first!'));
+
+// Other module with import $ from 'jquery';
 require('second');
 
-//import semantic from 'semantic-ui';
-//console.log(semantic);
-//$('#dropdown').dropdown();
+// Semantic
+require('semantic-ui');
+$('#dropdown').dropdown();
 

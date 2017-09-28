@@ -18,6 +18,7 @@ let cssDev = ['style-loader', 'css-loader', 'sass-loader?sourceMap=true'],
 
 // config
 const config = {
+
 	entry:{
 		index: path.resolve(__dirname, 'src/index.js')
 		,second: path.resolve(__dirname, 'src/second.js')
@@ -96,8 +97,15 @@ const config = {
 	// options
 	bail: true, // NoEmitOnErrorsPlugin
 
-
 	// dev
+	devtool: isProduction ? "source-map" : false, // devtool: 'cheap-module-source-map',
+	watch: isProduction,
+	watchOptions: {
+		aggregateTimeout: 300
+		,ignored: '/node_modules/'
+	},
+
+	// dev server
 	devServer: {
 		open: true,
 		hot: true,
@@ -109,12 +117,6 @@ const config = {
 		port: '9000',
 		host: '0.0.0.0'
 	},
-	devtool: isProduction ? "source-map" : false, // devtool: 'cheap-module-source-map',
-	watch: isProduction,
-	watchOptions: {
-		aggregateTimeout: 300
-		,ignored: '/node_modules/'
-	}
 
 };
 // \ config
