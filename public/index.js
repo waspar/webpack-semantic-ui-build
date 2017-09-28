@@ -4742,8 +4742,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_underscore__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__semantic_dist_semantic_min_css__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__semantic_dist_semantic_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__semantic_dist_semantic_min_css__);
 
 
 
@@ -4780,8 +4778,8 @@ window.$ = window.jQuery = require("jquery");
  */
 
 // all in one
-
-__webpack_require__(10);
+// import '../semantic/dist/semantic.min.css';
+__webpack_require__(9);
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#dropdown').dropdown();
 
 // by parts
@@ -6409,12 +6407,6 @@ webpackContext.id = 7;
 /***/ }),
 /* 8 */,
 /* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) { /*

@@ -22,6 +22,7 @@ const config = {
 	entry:{
 		index: path.resolve(__dirname, 'src/index.js')
 		,second: path.resolve(__dirname, 'src/second.js')
+		,styles: path.resolve(__dirname, 'semantic/dist/semantic.min.css')
 	},
 	output: {
 		path: path.resolve(__dirname, 'public'),
@@ -33,8 +34,8 @@ const config = {
 		modules: ['node_modules', 'src'],
 		alias: {
 			'semantic-ui': path.join(__dirname, "semantic", "dist", "semantic.min.js"),
-		},
-		//extensions: ['', '.js', '.mjs', '.jsx']
+		}
+		//,extensions: ['.js', '.mjs', '.css', 'less']
 	},
 	module: {
 		rules: [

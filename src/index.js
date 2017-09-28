@@ -35,7 +35,7 @@ window.$ = window.jQuery = require("jquery");
  */
 
 // all in one
-import '../semantic/dist/semantic.min.css';
+// import '../semantic/dist/semantic.min.css';
 require('semantic-ui');
 $('#dropdown').dropdown();
 
