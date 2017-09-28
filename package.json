@@ -1,7 +1,7 @@
 {
   "name": "webpack-semantic",
   "version": "1.0.0",
-  "description": "webpack + semantic ui + others...",
+  "description": "webpack + semantic-ui build",
   "main": "index.js",
   "dependencies": {
     "accounting": "^0.4.1",
@@ -32,6 +32,6 @@
     "build": "NODE_ENV=production webpack -p",
     "deploy": "npm run build && gh-pages -d public"
   },
-  "author": "Wasapr",
+  "author": "Waspar",
   "license": "ISC"
 }
