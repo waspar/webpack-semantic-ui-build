@@ -103,9 +103,11 @@ const config = {
 		]
 	},
 	plugins: [
+		// new UglifyJsPlugin({sourceMap: !isProduction}), TODO
+		// new webpack.LoaderOptionsPlugin({minimize: isProduction}) , TODO
 		new ExtractTextPlugin({
-			filename: 'css/styles.css',
-			disable: !isProduction,
+			filename: 'css/[name].css', // [name].[ext]
+			//disable: !isProduction,
 			allChunks: true
 		})
 		//,new webpack.HotModuleReplacementPlugin()
