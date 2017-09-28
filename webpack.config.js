@@ -33,7 +33,7 @@ const config = {
 		alias: {
 			'semantic-ui': path.join(__dirname, "semantic", "dist", "semantic.min.js"),
 		},
-		//extensions: ['', '.js', '.jsx']
+		//extensions: ['', '.js', '.mjs', '.jsx']
 	},
 	module: {
 		rules: [
@@ -104,7 +104,9 @@ const config = {
 		stats: 'errors-only',
 		historyApiFallback: true,
 		contentBase: 'public',
-		port: '8080',
+		//contentBase: path.join(__dirname, 'public'),
+		//contentBase: path.resolve(__dirname),
+		port: '9000',
 		host: '0.0.0.0'
 	},
 	devtool: isProduction ? "source-map" : false, // devtool: 'cheap-module-source-map',
